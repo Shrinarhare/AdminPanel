@@ -15,6 +15,7 @@ export class ProductComponent implements OnInit {
   updateForm: any = FormGroup;
   imageUrl: string | undefined;
   mydata:any={}
+  photo:string | undefined
 
   constructor(
     private route: Router,
@@ -115,6 +116,7 @@ export class ProductComponent implements OnInit {
     this.adminservices.getP(data.id).subscribe((response:any)=>{
       this.mydata=response
       console.log(this.mydata[0].name)
+      this.photo=response[0].image
     },
     (error)=>
       {
@@ -127,6 +129,8 @@ export class ProductComponent implements OnInit {
         }
       })
   }
+
+  
   
 }
 
