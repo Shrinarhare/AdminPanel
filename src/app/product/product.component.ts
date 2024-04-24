@@ -112,15 +112,15 @@ export class ProductComponent implements OnInit {
     var data = {
       id:formdata.id
     }
-    this.adminservices.getP(data).subscribe((response:any)=>{
+    this.adminservices.getP(data.id).subscribe((response:any)=>{
       this.mydata=response
-
+      console.log(this.mydata[0].name)
     },
     (error)=>
       {
         if(error.error?.message)
         {
-          alert("Data are not find")
+          alert("Data not found")
         }else
         {
           alert(error)

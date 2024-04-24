@@ -30,7 +30,7 @@
       <label for="addProductImage">Image:</label>
       <div *ngIf="imageUrl">
         <img [src]="imageUrl" alt="Uploaded Image" height="200" formControlName="image">
-    </div>
+      </div>
       <input type="file" (change)="onFileSelected($event)" accept="image/*" mat-raised-button color="warn">
       
 
@@ -49,19 +49,24 @@
       <button type="submit" (click)="getP()">search</button>
 
       <label for="updateProductName">Product Name:</label>
-      <input type="text" id="updateProductName" name="updateProductName" formControlName="name" [(ngModel)]="mydata.name" required>
+      <input type="text" id="updateProductName" name="updateProductName" formControlName="name" [(ngModel)]="mydata[0].name" required>
   
       <label for="updateProductPrice">Price:</label>
-      <input type="number" id="updateProductPrice" name="updateProductPrice" formControlName="price" [(ngModel)]="mydata.price" required>
+      <input type="number" id="updateProductPrice" name="updateProductPrice" formControlName="price" [(ngModel)]="mydata[0].price" required>
   
       <label for="updateProductQuantity">Quantity:</label>
-      <input type="number" id="updateProductQuantity" name="updateProductQuantity" formControlName="quantity" [(ngModel)]="mydata.quantity" required>
+      <input type="number" id="updateProductQuantity" name="updateProductQuantity" formControlName="quantity" [(ngModel)]="mydata[0].quantity" required>
   
-      <label for="updateProductImage">Image:</label>
-      <input type="file" id="updateProductImage" name="updateProductImage" accept="image/*" formControlName="image" [(ngModel)]="mydata.image" required>
+
+      <label for="addProductImage">Image:</label>
+      <div *ngIf="imageUrl">
+        <img [(ngModel)]="mydata[0].image" [src]="imageUrl" alt="Uploaded Image" height="200" formControlName="image">
+      </div>
+      <input type="file" (change)="onFileSelected($event)" accept="image/*" mat-raised-button color="warn">
+      
 
       <label for="addProductImage">Description:</label>
-      <textarea id="addProductImage" name="addProductImage" cols="40" rows="10" formControlName="description" [(ngModel)]="mydata.description" required></textarea><br>
+      <textarea id="addProductImage" name="addProductImage" cols="40" rows="10" formControlName="description" [(ngModel)]="mydata[0].discription" required></textarea><br>
   
       <button type="submit">Update</button>
      </form>
