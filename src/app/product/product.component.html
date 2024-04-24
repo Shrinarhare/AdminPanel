@@ -1,0 +1,80 @@
+<div class="sidebar">
+  <h2 class="h2">Admin Panel</h2>
+  <ul>
+    <li><a routerLink="/customers" routerLinkActive="active">Customers</a></li>
+    <li><a routerLink="/products" routerLinkActive="active">Products</a></li>
+    <li><a routerLink="/feedback" routerLinkActive="active">Feedback</a></li>
+     <button mat-raised-button color="primary" (click)="login()">Dashboard</button>
+  </ul>
+</div>
+
+
+<div class="product-component">
+  <h2>Product Component</h2>
+  <button (click)="openAddForm()">Add Product</button>
+  <button (click)="openUpdateForm()">Update Product</button>
+  <button (click)="deleteProductForm()">Delete Product</button>
+
+  <div *ngIf="showAddForm">
+    <h3>Add Product Form</h3>
+    <form [formGroup]="productForm">
+      <label for="addProductName">Product Name:</label>
+      <input type="text" id="addProductName" name="addProductName" formControlName="name" required>
+  
+      <label for="addProductPrice">Price:</label>
+      <input type="number" id="addProductPrice" name="addProductPrice" formControlName="price" required>
+  
+      <label for="addProductQuantity">Quantity:</label>
+      <input type="number" id="addProductQuantity" name="addProductQuantity" formControlName="quantity" required>
+  
+      <label for="addProductImage">Image:</label>
+      <div *ngIf="imageUrl">
+        <img [src]="imageUrl" alt="Uploaded Image" height="200" formControlName="image">
+    </div>
+      <input type="file" (change)="onFileSelected($event)" accept="image/*" mat-raised-button color="warn">
+      
+
+      <label for="addProductImage">Description:</label>
+      <textarea id="addProductImage" name="addProductImage" cols="40" rows="10" formControlName="description" required></textarea><br>
+  
+      <button type="submit" (click)="addProduct()">Add</button>
+    </form>
+  </div>
+
+  <div *ngIf="showUpdateForm">
+    <h3>Update Product Form</h3>
+    <form [formGroup]="updateForm">
+      <label for="updateProductName">Product Id:</label>
+      <input type="text" id="updateProductName" name="updateProductName" formControlName="id" required>
+      <button type="submit" (click)="getP()">search</button>
+
+      <label for="updateProductName">Product Name:</label>
+      <input type="text" id="updateProductName" name="updateProductName" formControlName="name" [(ngModel)]="mydata.name" required>
+  
+      <label for="updateProductPrice">Price:</label>
+      <input type="number" id="updateProductPrice" name="updateProductPrice" formControlName="price" [(ngModel)]="mydata.price" required>
+  
+      <label for="updateProductQuantity">Quantity:</label>
+      <input type="number" id="updateProductQuantity" name="updateProductQuantity" formControlName="quantity" [(ngModel)]="mydata.quantity" required>
+  
+      <label for="updateProductImage">Image:</label>
+      <input type="file" id="updateProductImage" name="updateProductImage" accept="image/*" formControlName="image" [(ngModel)]="mydata.image" required>
+
+      <label for="addProductImage">Description:</label>
+      <textarea id="addProductImage" name="addProductImage" cols="40" rows="10" formControlName="description" [(ngModel)]="mydata.description" required></textarea><br>
+  
+      <button type="submit">Update</button>
+     </form>
+  </div>
+
+  <div *ngIf="showDeleteForm">
+    <h3>Delete Form</h3>
+    <form>
+      <p>Are you sure you want to delete this product?</p>
+    <button class="bt" style="display: flex; justify-content: center;">Yes</button>
+    <button class="bt">Delete</button>
+    <button class="bt">Cancel</button>
+     </form>
+  </div>
+
+</div>

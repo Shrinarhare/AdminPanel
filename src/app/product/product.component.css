@@ -1,0 +1,84 @@
+/* Styles for the sidebar */
+.sidebar {
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #333;
+  padding-top: 20px;
+}
+
+.sidebar h2 {
+  text-align: center;
+  color: white;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  padding: 10px 20px;
+}
+
+.sidebar ul li a {
+  text-decoration: none;
+  color: white;
+}
+
+.sidebar ul li a:hover {
+  color: #555;
+}
+
+body{
+  margin-left: 300px;
+}
+
+/* Styles for the main content */
+.product-component {
+  margin-left: 200px; /* Adjust this value to match the width of the sidebar */
+  padding: 20px;
+}
+
+.product-component h2 {
+  margin-bottom: 20px;
+}
+
+/* Styles for the form sections */
+.product-component form {
+  margin-bottom: 20px;
+}
+
+.product-component form label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.product-component form input[type="text"],
+.product-component form input[type="number"],
+.product-component form input[type="file"] {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.product-component form button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.product-component form button:hover {
+  background-color: #45a049;
+}
+.bt{
+  margin: 5px;
+}

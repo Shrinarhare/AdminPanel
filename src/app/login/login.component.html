@@ -1,0 +1,27 @@
+<div class="main m-3">
+  <form [formGroup]="loginForm" (ngSubmit)="login()">
+    <div class="login-container" fxLayout="column" fxLayoutAlign="center center">
+       <h1 class="h1" style="color: blue; display: flex; justify-content: center;">Admin</h1>
+       <mat-card class="login-card">
+         <mat-card-header>
+           <mat-card-title></mat-card-title>
+         </mat-card-header>
+         <mat-card-content>
+           <mat-form-field class="admin" style="width: 400px;">
+             <input matInput placeholder="Username" formControlName="username">
+             <mat-error *ngIf="loginForm.get('username').invalid && loginForm.get('username').touched">Username is required.</mat-error>
+           </mat-form-field>
+           <br>
+           <mat-form-field class="pass" style="width: 400px;">
+             <input matInput type="password" placeholder="Password" formControlName="password">
+             <mat-error *ngIf="loginForm.get('password').invalid && loginForm.get('password').touched">Password is required.</mat-error>
+           </mat-form-field>
+           <br>
+         </mat-card-content>
+         <mat-card-actions class="log">
+           <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid">Login</button>
+         </mat-card-actions>
+       </mat-card>
+     </div>
+  </form>
+</div>

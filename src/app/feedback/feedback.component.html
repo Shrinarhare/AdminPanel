@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Feedback</title>
+  
+</head>
+
+<div class="sidebar">
+    <h2 class="h2">Admin Panel</h2>
+    <ul>
+      <li><a routerLink="/customers" routerLinkActive="active">Customers</a></li>
+      <li><a routerLink="/products" routerLinkActive="active">Products</a></li>
+      <li><a routerLink="/feedback" routerLinkActive="active">Feedback</a></li>
+      <button mat-raised-button color="primary" (click)="login()">Dashboard</button>
+    </ul>
+  </div>
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+
+  <body>
+   
+    
+      <div class="container">
+        <h1>User Feedback</h1>
+        <div class="feedback-list">
+          <div class="feedback-item">
+            <div class="feedback-info">
+              <strong>Name:</strong> John Doe
+              <br>
+              <strong>Email:</strong> john@example.com
+              <br>
+              <strong>Comments:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec semper ex.
+            </div>
+            <div class="feedback-response">
+              <textarea placeholder="Type your response here"></textarea>
+              <button>Submit Response</button>
+            </div>
+          </div>
+          <!-- Add more feedback items here -->
+        </div>
+      </div>
+    </body>
+    
+    </html>
+    
+  
+  

@@ -1,0 +1,45 @@
+
+
+
+<div class="sidebar">
+    <h2 class="h2">Admin Panel</h2>
+    <ul>
+      <li><a routerLink="/customers" routerLinkActive="active">Customers</a></li>
+      <li><a routerLink="/products" routerLinkActive="active">Products</a></li>
+      <li><a routerLink="/feedback" routerLinkActive="active">Feedback</a></li>
+       <button mat-raised-button color="primary" (click)="login()">Dashboard</button>
+    </ul>
+  </div>
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+
+  <body style="margin-right: 50px;">
+    <h1 style="display: flex; justify-content: center;">{{ title }}</h1>
+    <table style="width: 100%;">
+
+      <tr>
+        <th>Id</th>
+        <th>Full Name</th>
+        <th>Username</th>
+        <th>Contact</th>
+        <th>Email</th>
+      </tr>
+      <tr  *ngFor="let item of userData">
+        <th>{{item.id}}</th>
+        <th>{{item.fullname}}</th>
+        <th>{{item.username}}</th>
+        <th>{{item.contact}}</th>
+        <th>{{item.email}}</th>
+      </tr>
+      
+
+    </table>
+    
+       
+        
+    
+    
+    
+  </body>
+  

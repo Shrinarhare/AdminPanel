@@ -1,0 +1,56 @@
+.sidebar {
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #333;
+  padding-top: 20px;
+}
+
+.sidebar h2 {
+  text-align: center;
+  color: white;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  padding: 10px 20px;
+}
+
+.sidebar ul li a {
+  text-decoration: none;
+  color: white;
+}
+
+.sidebar ul li a:hover {
+  color: #555;
+}
+  
+  .content {
+    margin-left: 200px;
+    padding: 20px;
+  }
+  body{
+    margin-left: 300px;
+  }
+  .h2{
+    display: flex;
+    justify-content: center; 
+    color:aliceblue ;
+  }
+
+  /* Add your custom styles here if needed */
+.card {
+  margin-top: 30px;
+}
+
+table, th, td {
+  border:1px solid black;
+}
+
+  
