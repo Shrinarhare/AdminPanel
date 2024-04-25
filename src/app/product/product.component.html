@@ -63,7 +63,7 @@
         <img [(ngModel)]="mydata[0].image" [src]="imageUrl" alt="Uploaded Image" height="200" formControlName="image">
       </div>
       <div *ngIf="!imageUrl">
-        <img [src]="imageUrl" alt="Uploaded Image" height="200" formControlName="image">
+        <img [src]="imageUrl" alt="Uploaded Image" height="200" formControlName="image_one">
       </div>
       <input type="file" (change)="onFileSelectednew($event)" accept="image/*" mat-raised-button color="warn">
 

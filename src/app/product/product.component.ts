@@ -36,7 +36,7 @@ export class ProductComponent implements OnInit {
       name: [null],
       price: [null],
       quantity: [null],
-      image: [null],
+      image_one: [null],
       description: [null],
     });
   }
@@ -115,7 +115,7 @@ export class ProductComponent implements OnInit {
     if (file) {
 
       this.productForm.patchValue({
-        image: this.imageUrl
+        image_one: this.imageUrl
       });
 
       reader.onload = () => {
@@ -158,7 +158,7 @@ updateData()
     name: formdata.name,
     price: formdata.price,
     quantity: formdata.quantity,
-    image: formdata.photo, //new Change
+    image: formdata.image_one, //new Change
     description: formdata.description,
   }
   this.adminservices.updateProduct(data).subscribe((response:any)=>
