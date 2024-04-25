@@ -43,7 +43,7 @@
 
   <div *ngIf="showUpdateForm">
     <h3>Update Product Form</h3>
-    <form [formGroup]="updateForm">
+    <form [formGroup]="updateForm" enctype="multipart/form-data">
       <label for="updateProductName">Product Id:</label>
       <input type="text" id="updateProductName" name="updateProductName" formControlName="id" required>
       <button type="submit" (click)="getP()">search</button>
@@ -59,14 +59,14 @@
   
 
       <label for="addProductImage">Image:</label>
-      <div *ngIf="!imageUrl">
-        <img [src]="mydata[0].image" alt="Uploaded Image" height="200" formControlName="image">
-      </div>
       <div *ngIf="imageUrl">
         <img [src]="imageUrl" alt="Uploaded Image" height="200" formControlName="image">
       </div>
+      <div *ngIf="!imageUrl">
+        <img [src]="photo" alt="Uploaded" height="200" formControlName="image">
+      </div>
       
-      <input type="file" (change)=" onFileSelectednew($event)" accept="image/*" mat-raised-button color="warn">
+      <input type="file" (change)="onFileSelected($event)" accept="image/*" mat-raised-button color="warn">
 
 
       <label for="addProductImage">Description:</label>

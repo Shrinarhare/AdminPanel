@@ -17,6 +17,7 @@ export class ProductComponent implements OnInit {
   mydata:any={}
   photo:string | undefined
 
+
   constructor(
     private route: Router,
         private adminservices: AdminService,
@@ -107,25 +108,6 @@ export class ProductComponent implements OnInit {
     }
   }
 
-  onFileSelectednew(event: any): void {
-    const file = event.target.files[0] as File;
-    const img = new Image();
-    const reader = new FileReader();
-    this.imageUrl = URL.createObjectURL(file);
-    if (file) {
-
-      this.productForm.patchValue({
-        image: this.imageUrl
-      });
-
-      reader.onload = () => {
-        this.imageUrl = reader.result as string;
-        img.src = reader.result as string
-      };
-      reader.readAsDataURL(file);
-    }
-    console.log(event)
-  }
 
   getP()
   {
@@ -136,7 +118,8 @@ export class ProductComponent implements OnInit {
     }
     this.adminservices.getP(data.id).subscribe((response:any)=>{
       this.mydata=response
-      console.log(this.mydata[0].name)
+      console.log(this.mydata[0])
+      this.photo=this.mydata[0].image
        //new change
     },
     (error)=>
