@@ -131,9 +131,36 @@ export class ProductComponent implements OnInit {
       })
   }
 
-  
+  // update Form
+updateData()
+{
+  const formdata=this.updateForm.value;
+  var data={
+    id:formdata.id,
+    name: formdata.name,
+    price: formdata.price,
+    quantity: formdata.quantity,
+    image: formdata.image.toString(), //new Change
+    description: formdata.description,
+  }
+  this.adminservices.updateProduct(data).subscribe((response:any)=>
+  {
+    alert("Data Updated");
+  },(error)=>
+    {
+      if(error.error?.message)
+      {
+        alert("Data not found")
+      }else
+      {
+        alert(error)
+      }
+    })
+}
   
 }
+
+
 
 // export class ProductComponent {
 //   title='Products';
