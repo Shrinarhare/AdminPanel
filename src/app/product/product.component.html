@@ -59,12 +59,13 @@
   
 
       <label for="addProductImage">Image:</label>
-      <div *ngIf="imageUrl">
-        <img [(ngModel)]="mydata[0].image" [src]="imageUrl" alt="Uploaded Image" height="200" formControlName="image">
-      </div>
       <div *ngIf="!imageUrl">
-        <img [(ngModel)]="mydata[0].image" [src]="imageUrl" alt="Uploaded Image" height="200" formControlName="image">
+        <img [src]="mydata[0].image" alt="Uploaded Image" height="200" formControlName="image">
       </div>
+      <div *ngIf="imageUrl">
+        <img [src]="imageUrl" alt="Uploaded Image" height="200" formControlName="image">
+      </div>
+      
       <input type="file" (change)=" onFileSelectednew($event)" accept="image/*" mat-raised-button color="warn">
 
 

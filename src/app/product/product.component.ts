@@ -137,7 +137,7 @@ export class ProductComponent implements OnInit {
     this.adminservices.getP(data.id).subscribe((response:any)=>{
       this.mydata=response
       console.log(this.mydata[0].name)
-      this.photo=response[0].image.toString() //new change
+       //new change
     },
     (error)=>
       {
