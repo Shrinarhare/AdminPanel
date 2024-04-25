@@ -65,7 +65,7 @@
       <div *ngIf="!imageUrl">
         <img [src]="imageUrl" alt="Uploaded Image" height="200" formControlName="image">
       </div>
-      <input type="file" (change)="onFileSelected($event)" accept="image/*" mat-raised-button color="warn">
+      <input type="file" (change)="onFileSelectednew($event)" accept="image/*" mat-raised-button color="warn">
 
 
       <label for="addProductImage">Description:</label>

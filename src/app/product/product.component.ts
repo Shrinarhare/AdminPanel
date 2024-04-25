@@ -107,6 +107,25 @@ export class ProductComponent implements OnInit {
     }
   }
 
+  onFileSelectednew(event: any): void {
+    const file = event.target.files[0] as File;
+    const img = new Image();
+    const reader = new FileReader();
+    this.imageUrl = URL.createObjectURL(file);
+    if (file) {
+
+      this.productForm.patchValue({
+        image: this.imageUrl
+      });
+
+      reader.onload = () => {
+        this.imageUrl = reader.result as string;
+        img.src = reader.result as string
+      };
+      reader.readAsDataURL(file);
+    }
+  }
+
   getP()
   {
     const formdata = this.updateForm.value;
