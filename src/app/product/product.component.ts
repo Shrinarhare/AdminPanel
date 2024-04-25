@@ -14,7 +14,6 @@ export class ProductComponent implements OnInit {
   productForm: any = FormGroup;
   updateForm: any = FormGroup;
   imageUrl: string | undefined;
-  imageUrl_2: string | undefined;
   mydata:any={}
   photo:string | undefined
 
@@ -37,7 +36,7 @@ export class ProductComponent implements OnInit {
       name: [null],
       price: [null],
       quantity: [null],
-      image_one: [null],
+      image: [null],
       description: [null],
     });
   }
@@ -112,23 +111,25 @@ export class ProductComponent implements OnInit {
     const file = event.target.files[0] as File;
     const img = new Image();
     const reader = new FileReader();
-    this.imageUrl_2 = URL.createObjectURL(file);
+    this.imageUrl = URL.createObjectURL(file);
     if (file) {
 
       this.productForm.patchValue({
-        image_one: this.imageUrl_2
+        image: this.imageUrl
       });
 
       reader.onload = () => {
-        this.imageUrl_2= reader.result as string;
+        this.imageUrl = reader.result as string;
         img.src = reader.result as string
       };
       reader.readAsDataURL(file);
     }
+    console.log(event)
   }
 
   getP()
   {
+    alert("hii")
     const formdata = this.updateForm.value;
     var data = {
       id:formdata.id
@@ -136,7 +137,7 @@ export class ProductComponent implements OnInit {
     this.adminservices.getP(data.id).subscribe((response:any)=>{
       this.mydata=response
       console.log(this.mydata[0].name)
-      this.photo=response[0].image //new change
+      this.photo=response[0].image.toString() //new change
     },
     (error)=>
       {
@@ -159,7 +160,7 @@ updateData()
     name: formdata.name,
     price: formdata.price,
     quantity: formdata.quantity,
-    image: formdata.image_one, //new Change
+    image: formdata.image, //new Change
     description: formdata.description,
   }
   this.adminservices.updateProduct(data).subscribe((response:any)=>
