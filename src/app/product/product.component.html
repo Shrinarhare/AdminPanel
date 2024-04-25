@@ -60,7 +60,7 @@
 
       <label for="addProductImage">Image:</label>
       <div *ngIf="imageUrl">
-        <img [(ngModel)]="mydata[0].image" [src]="imageUrl" alt="Uploaded Image" height="200" formControlName="image">
+        <img [(ngModel)]="mydata[0].image" [src]="imageUrl" alt="Uploaded Image" height="200" formControlName="image_one">
       </div>
       <div *ngIf="!imageUrl">
         <img [src]="imageUrl" alt="Uploaded Image" height="200" formControlName="image_one">

@@ -14,6 +14,7 @@ export class ProductComponent implements OnInit {
   productForm: any = FormGroup;
   updateForm: any = FormGroup;
   imageUrl: string | undefined;
+  imageUrl_2: string | undefined;
   mydata:any={}
   photo:string | undefined
 
@@ -111,15 +112,15 @@ export class ProductComponent implements OnInit {
     const file = event.target.files[0] as File;
     const img = new Image();
     const reader = new FileReader();
-    this.imageUrl = URL.createObjectURL(file);
+    this.imageUrl_2 = URL.createObjectURL(file);
     if (file) {
 
       this.productForm.patchValue({
-        image_one: this.imageUrl
+        image_one: this.imageUrl_2
       });
 
       reader.onload = () => {
-        this.imageUrl = reader.result as string;
+        this.imageUrl_2= reader.result as string;
         img.src = reader.result as string
       };
       reader.readAsDataURL(file);
