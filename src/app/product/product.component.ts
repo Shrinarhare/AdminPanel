@@ -48,7 +48,7 @@ export class ProductComponent implements OnInit {
       name: formdata.name,
       price: formdata.price,
       quantity: formdata.quantity,
-      image: formdata.image.toString(), //new Change
+      image: formdata.image, //new Change
       description: formdata.description,
     };
     this.adminservices.addProduct(data).subscribe(
@@ -109,7 +109,6 @@ export class ProductComponent implements OnInit {
 
   getP()
   {
-    alert("hii")
     const formdata = this.updateForm.value;
     var data = {
       id:formdata.id
@@ -117,7 +116,7 @@ export class ProductComponent implements OnInit {
     this.adminservices.getP(data.id).subscribe((response:any)=>{
       this.mydata=response
       console.log(this.mydata[0].name)
-      this.photo=response[0].image.toString() //new change
+      this.photo=response[0].image //new change
     },
     (error)=>
       {
@@ -140,7 +139,7 @@ updateData()
     name: formdata.name,
     price: formdata.price,
     quantity: formdata.quantity,
-    image: formdata.image.toString(), //new Change
+    image: formdata.photo, //new Change
     description: formdata.description,
   }
   this.adminservices.updateProduct(data).subscribe((response:any)=>

@@ -60,7 +60,7 @@
 
       <label for="addProductImage">Image:</label>
       <div *ngIf="imageUrl">
-        <img [(ngModel)]="mydata[0].image" [src]="photo" alt="Uploaded Image" height="200" formControlName="image">
+        <img [(ngModel)]="mydata[0].image" [src]="imageUrl" alt="Uploaded Image" height="200" formControlName="image">
       </div>
       <input type="file" (change)="onFileSelected($event)" accept="image/*" mat-raised-button color="warn">
 
@@ -68,7 +68,7 @@
       <label for="addProductImage">Description:</label>
       <textarea id="addProductImage" name="addProductImage" cols="40" rows="10" formControlName="description" [(ngModel)]="mydata[0].discription" required></textarea><br>
   
-      <button type="submit">Update</button>
+      <button type="submit" (click)="updateData()">Update</button>
      </form>
   </div>
 

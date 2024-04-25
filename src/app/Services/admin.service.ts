@@ -48,7 +48,7 @@ export class AdminService {
 
   updateProduct(data:any)
   {
-    return this.httpClient.patch(this.url+"/admin/update"+ data,{
+    return this.httpClient.patch(this.url+"/admin/update", data,{
       headers:new HttpHeaders().set('Content-type','application/json')
     })
   }
